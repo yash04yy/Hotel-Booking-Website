@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./signup.css">
+    <title>SignUp</title>
+
+    <script>
+        function validate_password() {
+            let pass = document.getElementById("pass").value;
+            var ideal_us = /[A-Z]+/;
+            var ideal_digit = /[0-9]+/;
+            var ideal_char = /[@,#,$,&]+/;
+            if (pass.length >= 7) {
+                if (pass.match(ideal_us)) {
+                    if (pass.match(ideal_digit)) {
+                        if (pass.match(ideal_char)) {
+                            return true;
+                        } else {
+                            alert("Please enter at least one special character!");
+                            return false;
+                        }
+
+                    } else {
+                        alert("Please enter at least one digit!");
+                        return false;
+                    }
+
+                } else {
+                    alert("Please enter atleast one uppercase character!");
+                    return false;
+                }
+
+            } else {
+                alert("Password must be at least 8 characters long!");
+                return false;
+            }
+        }
+
+        /*function validate() {
+             alert("Logged in successfully");
+         }*/
+    </script>
+
+</head>
+
+<body>
+
+    <form action="signuphandler.php" method="post" class="signup active">
+        <h3 style="color: maroon; padding: 40px;align-items:center; font-weight: 200;">Log in to your existing account</h3>
+        <div class="form-group">
+            <label for="email">username/ email</label>
+            <input name="username" type="text" id="email" placeholder="ishika22" onchange="validate_email()">
+        </div>
+        <div class="form-group">
+            <label for="pass">password</label>
+            <input name="password" type="password" id="pass" placeholder="at least 8 characters..." onchange="validate_password()">
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="agree">
+            <label for="agree">Agree with our
+              <a href="./pp.html">privacy</a> and <a href="./tnc.html">terms.</a>
+            </label>
+        </div>
+        <button name="signup_button" onclick="validate_checkbox()">Login</button>
+    </form>
+    </div>
+    </div>
+
+</body>
+
+</html>
